@@ -10,6 +10,7 @@ try:
 
     x = data[['model_id']]
     y = data[['model_engine_cc']]
+    
 
     model = LinearRegression()
     model.fit(x, y)
