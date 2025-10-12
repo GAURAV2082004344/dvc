@@ -3,7 +3,12 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
+<<<<<<< Updated upstream
       - master  # Change if your main branch is 'master'
+=======
+      - master
+# Change if your main branch is 'master'
+>>>>>>> Stashed changes
 
 jobs:
   build:
