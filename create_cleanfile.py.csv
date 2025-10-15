@@ -1,0 +1,14 @@
+import pandas as pd
+
+# Sample data dictionary
+data = {
+    "feature1": [1, 3, 5],
+    "feature2": [2, 4, 6],
+    "target": [0, 1, 0]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Save as cleanfile.csv in current directory
+df.to_csv("cleanfile.csv", index=False)
