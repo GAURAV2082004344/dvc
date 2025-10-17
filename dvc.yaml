@@ -13,3 +13,13 @@ stages:
       - evaluate.py
       - cleaned_file.csv
       - model.pkl
+	
+  preprocess:
+  	cmd: python preprocess.py
+  	deps:
+    		- preprocess.py
+    		- raw_data.csv  # or the original data
+  	outs:
+  		  - cleaned_file.csv
+		
+	
