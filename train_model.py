@@ -2,21 +2,17 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import joblib
 
-try:
-    print("Starting training...")
-
-    data = pd.read_csv("cleaned_file.csv")
-    print(f"Data loaded: {data.shape} rows and columns")
-
-    x = data[["model_id"]]
-    y = data[["model_engine_cc"]]
+def train(input_csv, model_output):
+    df = pd.read_csv(input_csv)
+    y = df["co2_emissions_gpkm"]
+    X = df.drop("co2_emissions_gpkm", axis=1)
+    X = pd.get_dummies(X)
 
     model = LinearRegression()
-    model.fit(x, y)
+    model.fit(X, y)
 
-    joblib.dump(model, "model.pkl")
+    # Save the trained model
+    joblib.dump(model, model_output)
 
-    print("Model saved successfully as model.pkl")
-
-except Exception as e:
-    print("Error:", e)
+if __name__ == "__main__":
+    train("cleaned_file.csv", "model.pkl")
