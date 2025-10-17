@@ -3,14 +3,14 @@ stages:
   preprocess:
     cmd: python preprocess.py
     deps:
-    - path: final_bmw_dataset_with_new_features.csv
-      hash: md5
-      md5: 7e801b2c2848d29ed02637c625b30368
-      size: 436605
     - path: preprocess.py
       hash: md5
-      md5: cfba2f18afc00465e3260aa92f42ddf6
-      size: 448
+      md5: ac89291d74ffb2a26900ded8158b7f3d
+      size: 452
+    - path: raw_data.csv
+      hash: md5
+      md5: 3bc2106e1d67e839728eeadca6e25e37
+      size: 339478
     outs:
     - path: cleaned_file.csv
       hash: md5
