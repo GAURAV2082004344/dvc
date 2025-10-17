@@ -9,5 +9,3 @@ df = df.drop_duplicates()  # Remove duplicate rows
 
 # Save cleaned output
 df.to_csv("cleaned_file.csv", index=False)
-
-
