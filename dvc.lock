@@ -3,24 +3,47 @@ stages:
   preprocess:
     cmd: python preprocess.py
     deps:
-    - path: final_bmw_dataset.csv
+    - path: final_bmw_dataset_with_new_features.csv
       hash: md5
-      md5: 3bc2106e1d67e839728eeadca6e25e37
-      size: 339478
+      md5: 7e801b2c2848d29ed02637c625b30368
+      size: 436605
+    - path: preprocess.py
+      hash: md5
+      md5: cfba2f18afc00465e3260aa92f42ddf6
+      size: 448
     outs:
     - path: cleaned_file.csv
       hash: md5
-      md5: 539ec4df30fd2dbfc6874ebcb60119ff
-      size: 329830
+      md5: 7e801b2c2848d29ed02637c625b30368
+      size: 436605
   train:
     cmd: python train_model.py
     deps:
     - path: cleaned_file.csv
       hash: md5
-      md5: 539ec4df30fd2dbfc6874ebcb60119ff
-      size: 329830
+      md5: 7e801b2c2848d29ed02637c625b30368
+      size: 436605
+    - path: train_model.py
+      hash: md5
+      md5: 2da8af6e664061e7f78612e3717050e0
+      size: 466
     outs:
     - path: model.pkl
       hash: md5
-      md5: c3be8146229d6ceeef6c4ad1469420a3
-      size: 879
+      md5: 75cbe9f1d6c722acb213b00f093b35f9
+      size: 36088
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+    - path: cleaned_file.csv
+      hash: md5
+      md5: 7e801b2c2848d29ed02637c625b30368
+      size: 436605
+    - path: evaluate.py
+      hash: md5
+      md5: e62bfb17372cacb9c96b2624e92045bf
+      size: 506
+    - path: model.pkl
+      hash: md5
+      md5: 75cbe9f1d6c722acb213b00f093b35f9
+      size: 36088
