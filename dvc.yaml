@@ -1,12 +1,4 @@
 stages:
-  preprocess:
-    cmd: python preprocess.py
-    deps:
-      - preprocess.py
-      - final_bmw_dataset_with_new_features.csv
-    outs:
-      - cleaned_file.csv
-
   train:
     cmd: python train_model.py
     deps:
