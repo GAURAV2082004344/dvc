@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import joblib
 
+
 def train(input_csv, model_output):
     df = pd.read_csv(input_csv)
     y = df["co2_emissions_gpkm"]
@@ -13,6 +14,7 @@ def train(input_csv, model_output):
 
     # Save the trained model
     joblib.dump(model, model_output)
+
 
 if __name__ == "__main__":
     train("cleaned_file.csv", "model.pkl")
