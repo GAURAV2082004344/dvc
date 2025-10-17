@@ -1,0 +1,13 @@
+stages:
+  train:
+    cmd: python train_model.py
+    deps:
+    - cleaned_file.csv
+    outs:
+    - model.pkl
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+    - final_bmw_dataset.csv
+    outs:
+    - cleaned_file.csv
