@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+    - path: final_bmw_dataset.csv
+      hash: md5
+      md5: 3bc2106e1d67e839728eeadca6e25e37
+      size: 339478
+    outs:
+    - path: cleaned_file.csv
+      hash: md5
+      md5: 539ec4df30fd2dbfc6874ebcb60119ff
+      size: 329830
+  train:
+    cmd: python train_model.py
+    deps:
+    - path: cleaned_file.csv
+      hash: md5
+      md5: 539ec4df30fd2dbfc6874ebcb60119ff
+      size: 329830
+    outs:
+    - path: model.pkl
+      hash: md5
+      md5: c3be8146229d6ceeef6c4ad1469420a3
+      size: 879
