@@ -1,4 +1,4 @@
 [core]
     remote = localremote
 ['remote "localremote"']
-    url = /path/to/your/local/storage
+    url = C:/Users/GAURAV/OneDrive/Desktop/experiment7-ci/dvc_cache
